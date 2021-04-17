@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fafafa url(images/bg-mobile-light.jpg) fixed top/contain no-repeat;
+    color: #333;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    min-height: 100vh;
+    position: relative;
+    line-height: 1.4rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 540px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+:focus {
+    outline: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+header {
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.8rem;
+    padding: 2.7rem 0 2rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2em;
+}
+
+.dark-mode {
+    margin-top: -0.5rem;
+}
+
+.create-new,
+.list,
+.filter {
+    background-color: white;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+    min-height: 3.5rem;
+    box-shadow: 0 0 3rem -1rem #0004;
+}
+
+.status {
+    align-items: center;
+    justify-content: space-between;
+    min-height: 3.7rem;
+}
+
+.filter {
+    justify-content: center;
+    margin: 0;
+    display: none;
+    font-weight: 700;
+}
+
+.show {
+    display: flex;
+}
+
+.list {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-pad {
+    padding: 0 1.5rem;
+}
+
+.info {
+    text-align: center;
+    color: #aaa;
+    padding-top: 3em;
+    padding-bottom: calc(3rem + 11px);
+    flex-grow: 3;
+}
+
+.tick {
+    border: 1px solid #ddd;
+    height: 1.5em;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    flex-basis: 1.5em;
+    align-self: center;
+    margin: 0 0.7em 0 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.tick > img {
+    height: 50%;
+    pointer-events: none;
+}
+
+.cross {
+    visibility: hidden;
+    height: 1.5em;
+    flex-basis: 1.5em;
+    align-self: center;
+    margin: 0 1.4em 0 0.7em;
+    display: flex;
+    padding: 0.3em;
+}
+
+.ticked > .tick {
+    background: rgba(78,182,170,1);
+    background: linear-gradient(145deg, rgba(78,182,170,1) 37%, rgba(112,54,228,1) 77%);
+    border: none;
+}
+
+.ticked > span {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.filler:hover::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(145deg, rgba(78,182,170,1) 37%, rgba(112,54,228,1) 77%);
+}
+
+.filler {
+    background-color: white;
+    position: absolute;
+    top: 1px; right: 1px; bottom: 1px; left: 1px;
+    border: 50% solid transparent;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    pointer-events: none;
+}
+
+.filler:hover {
+    border: none;
+}
+
+.ticked .filler {
+    display: none;
+}
+
+.check {
+    width: 100%;
+    padding: 0.3em;
+}
+
+.item {
+    border-bottom: solid 1px  #ddd;
+    min-height: 3.5rem;
+    align-items: center;
+}
+
+.item:hover > .cross {
+    visibility: visible;
+}
+
+.item > span {
+    flex: 1;
+    pointer-events: none;
+}
+
+.btn,
+.items-left,
+input {
+    background: none;
+    color: #aaa;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    caret-color: rgba(78,182,170,1);
+}
+
+.over {
+    background-color: rgba(0, 136, 255, 0.11);
+}
+
+.btn:focus,
+.btn:hover {
+    color: #333;
+}
+
+.item:focus,
+.item:hover {
+    text-shadow: 0 0 1px #3336;
+}
+
+.clear:focus,
+.clear:hover {
+    color: #666;
+}
+
+.btn:hover,
+.item:hover,
+.tick:hover {
+    cursor: pointer;
+}
+
+
+input {
+    color: #333;
+    flex: 1;
+    margin-right: 4.2rem;
+    line-height: 2rem;
+}
+
+.hide {
+    display: none;
+}
+
+/* dark theme */
+body.dark {
+    background: #171723 url(images/bg-mobile-dark.jpg) fixed top/contain no-repeat;
+    color: #c8c8e6;
+}
+
+.dark .create-new,
+.dark .list,
+.dark .filter,
+.dark .filler {
+    background: #26263c;
+}
+
+.dark .tick {
+    border-color: #3c3c50;
+}
+
+.dark .item {
+    border-color: #3c3c50;
+}
+
+.dark input,
+.dark .items-left,
+.dark .btn {
+    color: #78788c;
+}
+
+.dark .ticked > span {
+    color: #646478;
+}
+
+.filter > .active {
+    color:rgba(78,182,170,1)
+}
+
+@media only screen and (min-width: 480px) {
+    body {
+        background: #fafafa url(images/bg-desktop-light.jpg) center top no-repeat;
+        font-size: 18px;
+    }
+
+    body.dark {
+        background: #171723 url(images/bg-desktop-dark.jpg) center top no-repeat; 
+    } 
+
+    .tick, .cross {
+        margin: 0 1.5em;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    body {
+        background: #fafafa url(images/bg-desktop-light.jpg) center top/contain no-repeat;
+    }
+
+    body.dark {
+        background: #171723 url(images/bg-desktop-dark.jpg) center top/contain no-repeat;
+    }
+}
